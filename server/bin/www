@@ -1,0 +1,47 @@
+#!/usr/bin/env node
+
+
+// PRZY PRZESIADKACH ZEBY OBLICZYC POPRAWNY CZAS POWINIENEM DAC ROZNICE POMIEDZY PIERWSZYM WYLOTEM A OSTANTIM PRZYLOTEM!!!
+
+
+/**
+ * Module dependencies.
+ */
+/**
+ * Created by Wojciech on 2016-07-27.
+ */
+
+/**
+ * Created by Wojciech on 2016-07-27.
+ */
+var express = require('express');
+var app = express();
+var fs = require("fs");
+
+var pg = require("pg-promise")(/*options*/);
+var db = pg("postgres://postgres:1234@localhost:5432/postgres");
+var dbReadOnly = pg("postgres://readonly:1234@localhost:5432/postgres");
+var bodyParser = require('body-parser');
+var DAYS_FORWARD_SEARCH = 7;
+var log = require('./logger.js');
+
+app.use(bodyParser.json()); // support json encoded bodies
+app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
+require('./addClass.js')(app,db);
+require('./addFlight.js')(app,db);
+require('./deleteAllClasses.js')(app,db);
+require('./deleteClass.js')(app,db);
+require('./executeQuery.js')(app,dbReadOnly);
+require('./getAirlines.js')(app,db);
+require('./getAirport.js')(app,db);
+require('./getFlights.js')(app,db);
+require('./getListOfAirlines.js')(app,db);
+require('./getListOfAirports.js')(app,db);
+require('./getListOfClasses.js')(app,db);
+require('./getListOfFlights.js')(app,db);
+require('./getTheOldestFlights.js')(app,db);
+require('./updateClass.js')(app,db);
+
+var server = app.listen(4000, function () {
+	log.serverStarted(server);
+})

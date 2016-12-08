@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXDialog?>
+<?import com.jfoenix.controls.JFXDialogLayout?>
+<?import com.jfoenix.controls.JFXSlider?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXTreeTableView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<StackPane fx:id="stackPane" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="searchApp.search.SearchController">
+   <children>
+      <Pane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1000.0">
+         <children>
+            <JFXTreeTableView fx:id="resultTable" layoutX="14.0" layoutY="198.0" prefHeight="438.0" prefWidth="975.0">
+      </JFXTreeTableView>
+            <GridPane layoutX="200.0" prefHeight="171.0" prefWidth="800.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="66.0" minHeight="10.0" prefHeight="61.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="50.0" minHeight="10.0" prefHeight="42.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <AnchorPane GridPane.columnIndex="1">
+                     <children>
+                        <JFXTextField fx:id="toInput" layoutX="6.0" layoutY="8.0" maxWidth="400.0" minWidth="250.0" prefHeight="43.0" prefWidth="369.0" promptText="Do" AnchorPane.bottomAnchor="7.0">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </JFXTextField>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefWidth="400.0">
+                     <children>
+                        <JFXTextField fx:id="fromInput" alignment="BOTTOM_LEFT" layoutX="25.0" layoutY="8.0" maxWidth="369.0" minWidth="250.0" prefHeight="43.0" prefWidth="369.0" promptText="Z" AnchorPane.bottomAnchor="7.0">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </JFXTextField>
+                     </children>
+                  </AnchorPane>
+                  <VBox GridPane.rowIndex="1">
+                     <children>
+                        <Pane prefHeight="70.0" prefWidth="400.0" />
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label alignment="CENTER_RIGHT" opacity="0.5" prefHeight="48.0" prefWidth="116.0" text="Data wylotu">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <AnchorPane>
+                                 <children>
+                                    <JFXDatePicker fx:id="departureDate" layoutY="4.0" prefHeight="40.0" prefWidth="245.0" styleClass="mydatepicker" AnchorPane.bottomAnchor="4.0" />
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <VBox GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <children>
+                        <Pane prefHeight="70.0" prefWidth="300.0" />
+                        <HBox prefHeight="100.0" prefWidth="300.0">
+                           <children>
+                              <Label alignment="CENTER_RIGHT" opacity="0.5" prefHeight="48.0" prefWidth="130.0" text="Data powrotu">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <AnchorPane>
+                                 <children>
+                                    <JFXDatePicker fx:id="returnDate" layoutX="5.0" layoutY="4.0" prefHeight="40.0" prefWidth="245.0" styleClass="mydatepicker" stylesheets="@../css/datepicker.css" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="5.0">
+							  </JFXDatePicker>
+      						   </children>
+                              </AnchorPane>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <AnchorPane prefHeight="50.0" prefWidth="233.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <GridPane.margin>
+                        <Insets left="115.0" />
+                     </GridPane.margin>
+                     <children>
+                        <JFXButton fx:id="searchButton" layoutX="155.0" layoutY="1.0" onAction="#searchAction" prefHeight="48.0" prefWidth="104.0" style="-fx-background-color: rgb(92,184,92);" text="Szukaj">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </JFXButton>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="51.0" prefWidth="576.0" GridPane.rowIndex="2">
+                     <GridPane.margin>
+                        <Insets left="20.0" />
+                     </GridPane.margin>
+                     <children>
+                        <HBox fx:id="upperHbox" layoutX="182.0" layoutY="2.0" prefHeight="25.0" prefWidth="459.0">
+                           <children>
+                              <JFXCheckBox id="maxPriceCheckbox" fx:id="maxPriceCheckbox" onAction="#toggleMaxPriceSlider" prefHeight="35.0" prefWidth="125.0" scaleX="0.8" scaleY="0.8" scaleZ="0.8" text="Cena maks. (zł)">
+                                 <tooltip>
+                                    <Tooltip text="Maksymalna cena całe podróży" />
+                                 </tooltip></JFXCheckBox>
+                              <JFXSlider id="maxPriceSlider" fx:id="maxPriceSlider" max="2000.0" prefHeight="25.0" prefWidth="210.0" value="1000.0">
+                                 <HBox.margin>
+                                    <Insets left="28.0" />
+                                 </HBox.margin></JFXSlider>
+                           </children>
+                        </HBox>
+                        <JFXComboBox fx:id="maxChangesSelector" layoutX="14.0" layoutY="2.0" prefHeight="25.0" prefWidth="162.0" promptText="Maks. przesiadek" />
+                        <HBox fx:id="lowerHbox" layoutX="182.0" layoutY="26.0" prefHeight="25.0" prefWidth="459.0">
+                           <children>
+                              <JFXCheckBox id="flightDurationCheckbox" fx:id="flightDurationCheckbox" onAction="#toggleFlightDurationSlider" prefHeight="35.0" prefWidth="125.0" scaleX="0.8" scaleY="0.8" scaleZ="0.8" text="Czas podróży (godz.)">
+                                 <HBox.margin>
+                                    <Insets left="-3.0" />
+                                 </HBox.margin>
+                                 <tooltip>
+                                    <Tooltip text="Maksymalny czas jaki zajmie cała podróż" />
+                                 </tooltip></JFXCheckBox>
+                              <JFXSlider id="flightDurationSlider" fx:id="flightDurationSlider" max="48.0" prefHeight="25.0" prefWidth="210.0" value="24.0" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </GridPane>
+      							   <Label id="errorLabel" fx:id="errorLabel" alignment="CENTER" layoutX="232.0" layoutY="172.0" prefHeight="34.0" prefWidth="387.0" textFill="RED">
+      								   <font>
+      									   <Font name="System Bold" size="16.0" />
+      								   </font>
+      							   </Label>
+			 <JFXDialog fx:id="dialog" layoutX="274.0" layoutY="172.0" prefHeight="350.0" prefWidth="476.0">
+				 <JFXDialogLayout>
+					 <heading>
+						 <Label>Wyszukiwanie ponowne</Label>
+					 </heading>
+					 <body>
+						 <Label>Niestety nie znaleziono w bazie danych lotów. Czy spróbować pobrać aktualne loty prosto od przewoźnika?
+						 (Może to potrwać kilka minut)
+						 </Label>
+					 </body>
+					 <actions>
+						 <JFXButton fx:id="cancelButton" styleClass="dialog-cancel">Nie
+						 </JFXButton>
+						 <JFXButton fx:id="acceptButton" onAction="#searchFromParser" styleClass="dialog-accept">Tak
+						 </JFXButton>
+					 </actions>
+				 </JFXDialogLayout>
+			 </JFXDialog>
+            <JFXComboBox fx:id="maxChangesSelector1" layoutX="232.0" layoutY="152.0" prefHeight="25.0" prefWidth="162.0" promptText="Klasa" />
+         </children>
+      </Pane>
+   </children>
+</StackPane>

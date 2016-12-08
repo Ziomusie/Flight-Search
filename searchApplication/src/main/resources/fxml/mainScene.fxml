@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDialog?>
+<?import com.jfoenix.controls.JFXDialogLayout?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane fx:id="mainAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="650.0" minWidth="1000.0" prefHeight="650.0" prefWidth="980.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="searchApp.MainAppController">
+    <children>
+      		<StackPane fx:id="stackPane" prefHeight="650.0" prefWidth="1000.0">
+      			<JFXDialog fx:id="errorDialog" prefHeight="511.0" prefWidth="851.0">
+      				<JFXDialogLayout>
+      					<heading>
+      						<Label>Błąd pobierania</Label>
+      					</heading>
+      					<body>
+      						<Label>Niestety wystąpił bład połączenia z serwerem. Aplikacja zostanie zamknięta, ponieważ do działania potrzebuje połączenia z serwerem.
+						</Label>
+      					</body>
+      					<actions>
+      						<JFXButton fx:id="cancelButton" styleClass="dialog-cancel">Zamknij
+						</JFXButton>
+      					</actions>
+      				</JFXDialogLayout>
+      			</JFXDialog>
+           <AnchorPane fx:id="contentPane" prefHeight="650.0" prefWidth="1000.0" />
+      		</StackPane>
+        <VBox fx:id="drawerVBox" prefHeight="159.0" prefWidth="211.0">
+            <children>
+                <JFXButton fx:id="simpleSearchButton" onAction="#searchButtonClick" prefHeight="70.0" prefWidth="200.0" text="Wyszukiwanie" />
+                <JFXButton fx:id="advancedSearchButton" onAction="#advancedSearchButtonClick" prefHeight="70.0" prefWidth="200.0" text="Wyszukiwanie zaawansowane" />
+            </children>
+        </VBox>
+
+    </children>
+</AnchorPane>

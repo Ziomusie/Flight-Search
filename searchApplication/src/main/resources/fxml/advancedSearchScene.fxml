@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDialog?>
+<?import com.jfoenix.controls.JFXDialogLayout?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTreeTableView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane fx:id="stackPane" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="searchApp.search.AdvancedSearchController">
+   <children>
+      <Pane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1000.0">
+         <children>
+            <JFXTreeTableView fx:id="resultTable" layoutX="9.0" layoutY="147.0" prefHeight="496.0" prefWidth="982.0" visible="false">
+      </JFXTreeTableView>
+            <JFXButton id="searchButton" fx:id="searchButton" layoutX="830.0" layoutY="115.0" onAction="#searchAction" prefHeight="25.0" prefWidth="132.0" style="-fx-background-color: rgb(92,184,92);" text="Szukaj">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </JFXButton>
+            <JFXTextArea id="inputTextArea" fx:id="inputTextArea" layoutX="200.0" layoutY="11.0" maxWidth="793.0" minWidth="546.0" prefHeight="95.0" prefWidth="793.0" />
+            <JFXButton id="infoButton" fx:id="infoButton" layoutX="200.0" layoutY="115.0" onAction="#infoAction" text="Info" />
+            <Label fx:id="errorLabel" layoutX="201.0" layoutY="147.0" prefHeight="25.0" prefWidth="793.0" textFill="RED">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <JFXDialog fx:id="dialog" layoutX="274.0" layoutY="172.0" prefHeight="350.0" prefWidth="476.0">
+				<JFXDialogLayout>
+					<heading>
+						<Label>Wyszukiwanie zaawansowane - Schemat Bazy Danych</Label>
+					</heading>
+					<body>
+						<ImageView fx:id="dialogImage" fitHeight="500.0" fitWidth="500.0" pickOnBounds="true" preserveRatio="true">
+						</ImageView>
+					</body>
+					<actions>
+						<JFXButton fx:id="acceptButton" styleClass="dialog-accept">OK
+						</JFXButton>
+					</actions>
+				</JFXDialogLayout>
+            </JFXDialog>
+            <JFXButton fx:id="examleQueryButton2" layoutX="722.0" layoutY="115.0" onAction="#sampleQuery2Action" prefHeight="25.0" prefWidth="100.0" text="Zapytanie nr.2">
+               <tooltip>
+                  <Tooltip text="Przykładowe zapytanie nr.2" />
+               </tooltip>
+            </JFXButton>
+            <JFXButton fx:id="examleQueryButton1" layoutX="622.0" layoutY="115.0" onAction="#sampleQuery1Action" prefHeight="25.0" prefWidth="100.0" text="Zapytanie nr.1">
+               <tooltip>
+                  <Tooltip text="Przykładowe zapytanie nr.1" />
+               </tooltip>
+            </JFXButton>
+         </children>
+      </Pane>
+   </children>
+</StackPane>

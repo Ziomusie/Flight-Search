@@ -1,0 +1,1 @@
+mvn install:install-file -Dfile=jfoenix.jar -DgroupId=jfoenix -DartifactId=jfoenix -Dversion=1.0 -Dpackaging=jar
