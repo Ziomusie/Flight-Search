@@ -1,0 +1,8 @@
+.idea/**
+**/target/**
+*.iml
+searchApplication/.idea/**
+searchApplication/**/target/**
+searchApplication/out/**
+**/*.log
+executable/**
